@@ -12,7 +12,6 @@ def main():
 
     elif sys.argv[1] == "new":
         # YOUR CODE HERE #
-        
 
     elif sys.argv[1] == "list":
         if not os.path.isfile(PHONEBOOK_ENTRIES) or os.path.getsize(

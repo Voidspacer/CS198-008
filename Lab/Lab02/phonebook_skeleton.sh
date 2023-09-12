@@ -8,27 +8,27 @@ if [ "$#" -lt 1 ]; then
 
 elif [ "$1" = "new" ]; then
     # YOUR CODE HERE #
-    add_entry $2 $3
+    echo "$2 $3" >> $PHONEBOOK_ENTRIES
 
 elif [ "$1" = "list" ]; then
     if [ ! -e $PHONEBOOK_ENTRIES ] || [ ! -s $PHONEBOOK_ENTRIES ]; then
         echo "phonebook is empty"
     else
         # YOUR CODE HERE #
-        list_entries
+        cat $PHONEBOOK_ENTRIES
     fi
 
 elif [ "$1" = "lookup" ]; then
     # YOUR CODE HERE #
-    list_entries $2
+    grep -i "$2" $PHONEBOOK_ENTRIES
 
 elif [ "$1" = "remove" ]; then
     # YOUR CODE HERE #
-    remove_entry $2
+    grep -v "$2" $PHONEBOOK_ENTRIES > temp
 
 elif [ "$1" = "clear" ]; then
     # YOUR CODE HERE #
-    remove_all_entries
+    rm $PHONEBOOK_ENTRIES
 
 else
      # YOUR CODE HERE #
